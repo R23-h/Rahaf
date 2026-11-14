@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>البورتفوليو</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#F7F7F4;--card:#FFFFFF;--ink:#1B1F24;--mut:#5E6773;--line:#E2E3DE;--acc:#2457A6;--on:#fff;--soft:#E7EEF8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1317;--card:#171C22;--ink:#EDEFF2;--mut:#9AA4B1;--line:#29313A;--acc:#7EA8F0;--on:#0B1220;--soft:#1B2738}}
+:root[data-theme="dark"]{--bg:#0F1317;--card:#171C22;--ink:#EDEFF2;--mut:#9AA4B1;--line:#29313A;--acc:#7EA8F0;--on:#0B1220;--soft:#1B2738}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.8 "Tajawal",Tahoma,Arial,sans-serif}
+a{color:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-weight:700}
+nav .links{display:flex;gap:18px;font-weight:500;font-size:15px}
+nav a{text-decoration:none;color:var(--mut)}nav a:hover{color:var(--acc)}
+.hero{padding:56px 0 64px}
+.hero small{color:var(--acc);font-weight:700;letter-spacing:.02em}
+.hero h1{font-size:clamp(34px,7vw,60px);line-height:1.2;margin:8px 0 14px;font-weight:800}
+.hero p{max-width:600px;color:var(--mut);font-size:19px;margin:0 0 26px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--acc);color:var(--on);border:2px solid var(--acc);border-radius:12px;padding:10px 22px;font-weight:700;text-decoration:none;font-size:16px}
+.btn.ghost{background:transparent;color:var(--acc)}
+.btn.sm{padding:6px 14px;font-size:14px;border-radius:10px}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;margin:0 0 6px;font-weight:800}
+.sub{color:var(--mut);margin:0 0 24px}
+.proj{display:grid;gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr}
+@media (min-width:760px){.card{grid-template-columns:5fr 6fr}}
+.cover{min-height:200px;background:linear-gradient(135deg,var(--soft),var(--bg));display:grid;place-items:center;font-size:56px;font-weight:800;color:var(--acc);position:relative}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.body{padding:22px}
+.type{display:inline-block;font-size:13px;font-weight:700;color:var(--acc);background:var(--soft);border-radius:20px;padding:2px 12px}
+.body h3{margin:10px 0 4px;font-size:22px}
+.body p{margin:0 0 12px;color:var(--mut)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chip{border:1px solid var(--line);border-radius:8px;padding:0 10px;font-size:14px;color:var(--mut)}
+details{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:700;color:var(--acc)}
+details h4{margin:12px 0 2px;font-size:16px}
+details p{margin:0;font-size:16px}
+summary:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.two{display:grid;gap:30px}
+@media (min-width:760px){.two{grid-template-columns:1fr 1fr}}
+.list{margin:0;padding:0;list-style:none}
+.list li{padding:8px 0;border-bottom:1px dashed var(--line)}
+.list li:last-child{border:0}
+.list span{color:var(--mut);font-size:15px;display:block}
+.contact a.big{font-size:clamp(20px,5vw,32px);font-weight:800;color:var(--acc);text-decoration:none;word-break:break-all}
+footer{padding:30px 0 40px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><div id="logo"></div><div class="links"><a href="#work">أعمالي</a><a href="#about">نبذة</a><a href="#contact">تواصل</a></div></nav>
+  <header class="hero">
+    <small id="kicker"></small>
+    <h1 id="name"></h1>
+    <p id="intro"></p>
+    <div class="btns"><a class="btn" href="#work">شاهد أعمالي</a><a class="btn ghost" href="#contact">تواصل معي</a><a class="btn ghost" id="cv" hidden>تحميل السيرة الذاتية</a></div>
+  </header>
+
+  <section id="work"><h2>أعمالي</h2><p class="sub">مشاريع صممتها وبنيتها، اضغط “التفاصيل” على أي مشروع لقصته.</p><div class="proj" id="proj"></div></section>
+
+  <section id="about"><h2>نبذة عني</h2><p class="sub" id="about-text"></p>
+    <div class="two"><div><h4>المهارات</h4><ul class="list" id="skills"></ul></div><div><h4>إنجازات وتدريب</h4><ul class="list" id="ach"></ul></div></div>
+  </section>
+
+  <section id="contact" class="contact"><h2>تواصل معي</h2><p class="sub"></p>
+    <a class="big" id="mail"></a><div class="btns" id="soc" style="margin-top:18px"></div>
+  </section>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+/* ============ عدّلي هذا القسم فقط ============
+   كل نص في الموقع يجي من هنا. اترك الرابط فاضي '' ويختفي الزر تلقائياً.
+   للصور: ضعي الصورة في مجلد images وكتبي المسار مثل 'images/rahlati.png' */
+const C={
+  name:'رهف الجهني',
+  kicker:'UI/UX و Front-end',
+  intro:'خريجة علوم حاسب، أصمم واجهات المواقع والتطبيقات في Figma وFramer وأبنيها بـ HTML وCSS',
+  email:'rahafnawaf23@gmail.com',
+  cv:'',
+  links:{GitHub:'',LinkedIn:'',Behance:''},
+  skills:[['التصميم','Figma · Framer · UI/UX · Prototyping'],['بناء المواقع','HTML · CSS'],['أساسيات البيانات','Python · MySQL']],
+  achievements:[['المركز الثالث','هاكاثون البيانات'],['برنامج علم البيانات','Saudi Digital Academy × MCIT × INE'],['تحليل البيانات','أكاديمية STC × IBM'],['مبادرة الأمن السيبراني','شهر التوعية بالأمن السيبراني']],
+  projects:[
+   {title:'لُجُي',type:'تطبيق جوال وموقع ويب · UI/UX',desc:'تطبيق وموقع لمدينة ساحلية وجبلية، يخطط فيه الزائر رحلته ويحجز الفعاليات والمطاعم والفنادق من مكان واحد.',
+    tools:['Figma','Framer'],
+    role:'تصميم واجهات التطبيق في Figma، وبناء موقع المشروع في Framer',
+    problem:'يتنقل الزائر بين مصادر متعددة للبحث عن الفعاليات، وحجز الفنادق والمطاعم، وتنظيم جدول رحلته، مما يستهلك وقته ويشتّت تجربته.',
+    decisions:'قسّمتُ الفعاليات إلى بحرية وبرية، وخصّصتُ لكل قسم هوية بصرية مميزة. وصمّمتُ تقويماً ينظّم الرحلة حسب اليوم والساعة. وفصلتُ الرحلات إلى قادمة وسابقة عبر تبويبات تتيح الوصول إلى أي رحلة بنقرة واحدة. واعتمدتُ في الموقع صوراً مولَّدة بالذكاء الاصطناعي (Gemini).',
+    links:{'النموذج التفاعلي (التطبيق)':'','الموقع (Framer)':''},img:'imges/لجي.png'},
+   {title:'ARUA',type:'موقع ويب · واجهة علامة تجارية',desc:'واجهة ويب لعلامة تجارية في مجال العناية، صُمّمت لإبراز المنتجات بوضوح وتعكس هوية العلامة.',
+    tools:['HTML','CSS'],
+    links:{'الموقع':'','الكود':''},img:'imges/AURA.png'},
+   {title:'BUN',type:'موقع ويب · تصميم واجهات',desc:'قائمة طعام رقمية لمقهى، تعرض المنتجات بوضوح وبساطة، ويصل إليها العميل عبر المتصفح دون الحاجة إلى تنزيل تطبيق.',
+    tools:['Figma'],
+    links:{'التصميم':''},img:'imges/Bun.png'}
+  ]
+};
+/* =========================================== */
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=s=>document.querySelector(s);
+document.title=C.name+' | بورتفوليو';
+$('#logo').textContent=C.name;$('#kicker').textContent=C.kicker;$('#name').textContent=C.name;$('#intro').textContent=C.intro;
+$('#about-text').textContent=C.about;
+if(C.cv){const a=$('#cv');a.href=C.cv;a.hidden=false}
+const lk=(o,cls)=>Object.entries(o).filter(([,u])=>u).map(([t,u])=>`<a class="btn ${cls}" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join('');
+$('#proj').innerHTML=C.projects.map(p=>`<article class="card"><div class="cover">${esc(p.title[0])}${p.img?`<img src="${esc(p.img)}" alt="${esc(p.title)}" loading="lazy">`:''}</div>
+<div class="body"><span class="type">${esc(p.type)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>
+<div class="chips">${p.tools.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>
+<div class="btns">${lk(p.links,'sm')}</div>
+${p.role||p.problem||p.decisions?`<details><summary>التفاصيل</summary>${p.role?`<h4>دوري</h4><p>${esc(p.role)}</p>`:''}${p.problem?`<h4>المشكلة</h4><p>${esc(p.problem)}</p>`:''}${p.decisions?`<h4>قراراتي في التصميم</h4><p>${esc(p.decisions)}</p>`:''}</details>`:''}</div></article>`).join('');
+$('#skills').innerHTML=C.skills.map(s=>`<li><b>${esc(s[0])}</b><span>${esc(s[1])}</span></li>`).join('');
+$('#ach').innerHTML=C.achievements.map(s=>`<li><b>${esc(s[0])}</b><span>${esc(s[1])}</span></li>`).join('');
+const m=$('#mail');m.textContent=C.email;m.href='mailto:'+C.email;
+$('#soc').innerHTML=lk(C.links,'ghost');
+$('#foot').textContent='© '+new Date().getFullYear()+' '+C.name;
+</script>
+</body>
+</html>
